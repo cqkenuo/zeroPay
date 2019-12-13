@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>提现记录</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link href="./static/css/mui.min.css" rel="stylesheet" th:href="@{~/static/css/mui.min.css}">
+
+    <style>
+        .body {
+            line-height: 0px;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .header {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .imgadd {
+            position: absolute;
+            margin-top: 9px;
+            width: 24px;
+            right: 8px;
+        }
+
+        .h1erweima {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .ul {
+            margin-top: 15%;
+            background: #1a1d2e;
+            line-height: 2em;
+        }
+
+        .p {
+            margin-left: 10%;
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+    </style>
+</head>
+<body style="background:#1a1d2e;">
+<header class="mui-bar mui-bar-nav header">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <!--    <a href="http://zq.rocjack.com/User/adderweima.html"><img src="./static/img/add.png" class="imgadd"></a>-->
+    <h1 class="mui-title h1erweima">提现记录</h1>
+</header>
+<ul class="mui-table-view ul">
+    <li class="mui-table-view-cell mui-collapse-content" th:each="entities : ${one}">
+        <a href="#"
+           th:onclick="orderOk([[${entities.uniqueNo}]]);"
+           class="mui-navigate-right">
+            <p class="p">订单编号:<span class="p" th:text="${entities.shopWithdrawalUniqueNo}">0.01</span></p>
+            <!--            <p class="p">收款费率:<span class="p" th:text="${entities.orderLimitAfter}">0.012</span></p>-->
+            <p class="p">充值金额:<span class="p" th:text="${entities.amount}">0</span></p>
+            <p class="p">付款编号:<span class="p mui-badge-red" th:text="${entities.uniqueNo}">1211w3sr</span></p>
+            <p class="p">申请状态:<span class="p " th:text="${entities.status}">已通过</span></p>
+            <p class="p">申请日期:<span class="p" th:text="${entities.createTime}">2019-12-11 00:09:37</span>
+            </p>
+        </a>
+    </li>
+</ul>
+</body>
+<script type="text/javascript" th:inline="javascript">
+
+    function orderOk(unique_no) {
+        window.location.href = '/cashierApply/withdrawal/' + unique_no + '/upload';
+        // $.ajax({
+        //     type: 'POST',
+        //     url: '/cashierApply/withdrawal/'+unique_no+'/upload',
+        //     dataType: 'json',
+        //     success: function (data) {
+        //         if (data.isSuccess == true) {
+        //             var dataTemp = $.parseJSON(data.result);
+        //             msg_alert("申请成功", "/cashierApply/withdrawal/" + dataTemp.unique_no + "/upload");
+        //         } else {
+        //             layer.msg(data.massege);
+        //         }
+        //     }
+        // });
+    }
+
+
+</script>
+
+</html>

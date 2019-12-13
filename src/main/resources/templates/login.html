@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<!-- saved from url=(0038)http://zq.rocjack.com/Login/login.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link href="./static/css/mui.min.css" rel="stylesheet">
+    <link href="./static/css/login.css" rel="stylesheet">
+    <!-- 	<script src="/Public/home/wap/js/mui.min.js"></script> -->
+    <script type="text/javascript" charset="utf-8">
+        mui.init();
+    </script>
+    <style>
+
+    </style>
+    <link rel="stylesheet" href="./static/css/layer.css" id="layui_layer_skinlayercss" style="">
+</head>
+<body><br>
+<p align="center">
+    <!-- <a class="mui-tab-item" href="/Login/shm.html">
+                    <span class="mui-icon mui-icon-info-filled"></span>
+                    <span class="mui-tab-label">登录后可查看  系统逻辑、流程及各模块入口说明</span>
+                </a>-->
+</p>
+
+<img src="./static/img/logo.jpg" class="img">
+<form name="formlogin" id="loginForm" class="formlogin mui-input-group form" method="post"
+      action="/api/cashier/loginData">
+    <div class="mui-input-row formdiv">
+        <img src="./static/img/nubmer.png" class="formimg">
+        <input type="number" name="loginName" style="margin-left:60px;position:absolute;top:-9px;" maxlength="11"
+               autocomplete="off" id="loginName" class="forminput" placeholder="请输入手机号" value="18900000001">
+    </div>
+    <div class="mui-input-row formdiv2">
+        <img src="./static/img/mima.png" class="formimg2">
+        <input type="password" name="password" maxlength="32" class="forminput2" placeholder="请输入密码" value="123456">
+    </div>
+
+    <div class="mui-input-row formdiv2">
+        <img src="./static/img/mima.png" class="formimg2">
+        <input type="text" name="code" maxlength="32" style="width:48%" class="forminput2" placeholder="请输入验证码">
+        <img src="./static/img/verify.html" id="verify_img" style="width: 80px;">
+    </div>
+
+    <br><br><br>
+    <div class="mui-button-row">
+        <button type="button" onclick="login()" class="mui-btn mui-btn-danger login" id="submit">登录</button>
+    </div>
+    <br>
+    <div class="mui-card-content">
+
+    </div>
+</form>
+
+
+<script src="./static/js/jquery1.11.1.min.js"></script>
+<script src="./static/js/jquery.min.js"></script>
+
+
+<!--表单验证-->
+<script type="text/javascript" src="./static/js/layer.js"></script>
+
+<script type="text/javascript" src="./static/js/index.js"></script>
+
+<script>
+    // function register() {
+    //     window.location.href = "/Login/register.html";
+    // }
+    //
+    // $("#verify_img").click(function () {
+    //     var verifyURL = "/Login/verify.html";
+    //     var time = new Date().getTime();
+    //     $("#verify_img").attr({
+    //         "src": verifyURL
+    //     });
+    // });
+</script>
+
+

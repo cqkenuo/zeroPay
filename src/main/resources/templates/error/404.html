@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!--    <script type="application/ecmascript" src="../static/js/jquery1.11.1.min.js"-->
+    <!--            th:href="@(~/static/js/jquery1.11.1.min.js)"></script>-->
+    <script type="text/javascript" src="../static/js/jquery1.11.1.min.js" th:href="@{~/static/js/jquery1.11.1.min.js}"></script>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>404</title>
+
+</head>
+<body>
+<h1>404</h1>
+</body>
+<script>
+
+
+    $(document).ready(function () {
+        window.setInterval(function () {
+
+                window.location.href = "/indexdata";
+            },
+            500);
+    });
+
+</script>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>资金明细</title>
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link href="./static/css/mui.min.css" rel="stylesheet">
+
+    <style>
+        .body {
+            line-height: 0px;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .header {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .imgadd {
+            position: absolute;
+            margin-top: 9px;
+            width: 24px;
+            right: 8px;
+        }
+
+        .h1erweima {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .ul {
+            margin-top: 15%;
+            background: #1a1d2e;
+            line-height: 2em;
+        }
+
+        .p {
+            margin-left: 10%;
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+    </style>
+</head>
+<body style="background:#1a1d2e;">
+<header class="mui-bar mui-bar-nav header">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <!--    <a href="http://zq.rocjack.com/User/adderweima.html"><img src="./static/img/add.png" class="imgadd"></a>-->
+    <h1 class="mui-title h1erweima">资金明细</h1>
+</header>
+<ul class="mui-table-view ul">
+    <li class="mui-table-view-cell mui-collapse-content" th:each="entities : ${entities}">
+        <a href="#" th:href="@{/cashierOrderLimitLog/flowdetails(id=${entities.id})}" class="mui-navigate-right">
+            <p class="p">金额:<span class="p" th:text="${entities.amount}">0.01</span></p>
+            <p class="p">变更后金额:<span class="p" th:text="${entities.orderLimitAfter}">22222222222</span></p>
+            <p class="p">交易类型:<span class="p mui-badge-success" th:text="${entities.category}"></span></p>
+            <p class="p">交易时间:<span class="p mui-badge-success" th:text="${entities.createTime}">2019-12-2 16:14 </span>
+            </p>
+        </a>
+    </li>
+</ul>
+</body>
+</html>

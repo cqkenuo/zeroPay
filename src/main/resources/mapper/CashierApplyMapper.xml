@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.pay.Dao.CashierApplyMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zero.pay.Entity.CashierApplyEntity">
+        <id column="id" property="id" />
+        <result column="unique_no" property="uniqueNo" />
+        <result column="shop_withdrawal_id" property="shopWithdrawalId" />
+        <result column="shop_withdrawal_unique_no" property="shopWithdrawalUniqueNo" />
+        <result column="cashier_id" property="cashierId" />
+        <result column="cashier_name" property="cashierName" />
+        <result column="cashier_username" property="cashierUsername" />
+        <result column="amount" property="amount" />
+        <result column="commission_rate" property="commissionRate" />
+        <result column="agent_id" property="agentId" />
+        <result column="agent_commission_rate" property="agentCommissionRate" />
+        <result column="status" property="status" />
+        <result column="image" property="image" />
+        <result column="approve_time" property="approveTime" />
+        <result column="create_time" property="createTime" />
+    </resultMap>
+
+</mapper>

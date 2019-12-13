@@ -1,0 +1,46 @@
+#端口号配置
+server:
+  port: 80
+  servlet:
+    session:
+      cookie:
+        max-age: 1200
+spring:
+  #模板引擎配置
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+    encoding: UTF-8
+    cache: false
+    servlet:
+      content-type: text/html
+  #静态文件配置
+  resources:
+    static-locations: classpath:/static,classpath:/static/**,classpath:/META-INF/resources,classpath:/templates/
+  #jdbc配置
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/paymgr?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+#    url: jdbc:mysql://122.51.112.129:3306/paymgr?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    database: 0
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+
+#mybatis配置
+mybatis:
+  #映射文件路径
+  mapper-locations: classpath:mapper/*.xml
+  #模型所在的保命
+  type-aliases-package: com.zero.pay.Entity
+
+#logging:
+#  level:
+#    com.zero.pay: DEBUG
+#  file: /opt/log/zero.log

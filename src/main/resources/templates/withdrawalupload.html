@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<!-- saved from url=(0051)http://zq.rocjack.com/Index/qiangdanxq/id/1873.html -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+    <link href="./static/css/mui.min.css" rel="stylesheet" th:href="@{~/static/css/mui.min.css}">
+    <link href="./static/css/layer.css">
+    <link rel="stylesheet" href="./static/css/layer.css" id="layui_layer_skinlayercss" style=""
+          th:href="@{~/static/css/layer.css}">
+
+    <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"
+            th:src="@{~/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" src="./static/js/index.js" th:src="@{~/static/js/index.js}"></script>
+    <script type="text/javascript" src="./static/js/layer.js" th:src="@{~/static/js/layer.js}"></script>
+    <script type="text/javascript" src="./static/js/public.js" th:src="@{~/static/js/public.js}"></script>
+    <script type="text/javascript" src="./static/js/webuploader.js" th:src="@{~/static/js/webuploader.js}"></script>
+    <script type="text/javascript" src="./static/js/Uploader.swf" th:src="@{~/static/js/Uploader.swf}"></script>
+    <style>
+        .body {
+            line-height: 0px;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .header {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .h1 {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .div {
+            background: #1f253d;
+            height: 160px;
+            width: 175px;
+            top: 80px;
+            margin: auto;
+            left: 0px;
+            right: 0px;
+            border-radius: 10px;
+            box-shadow: 2px 0px 20px 0px #007AFF;
+        }
+
+        .ul {
+            margin-top: 30%;
+            background: #1a1d2e;
+            line-height: 2em;
+        }
+
+        .li {
+            margin-left: 10%;
+            font-family: '微软雅黑';
+            color: aquamarine;
+        }
+
+        .p {
+            position: absolute;
+            right: 35px;
+            bottom: 12px;
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .files {
+            margin-right: 120px;
+            width: 120px;
+            text-align: center;
+        }
+
+        .file-btn {
+            display: block;
+            position: relative;
+            margin-right: 120px;
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .file-btn3 input, .file-btn input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .buttonGeoup .not_next {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            background: #073b6b;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body style="background:#1a1d2e;">
+<header class="mui-bar mui-bar-nav header">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <h1 class="mui-title h1">收单详情</h1>
+</header>
+<div class="mui-card-content div">
+
+    <div class="clear oneimg" style="width:100%;height:100%;color:#000;padding:1px 5px;">
+
+
+        <div id="filelist1" class="files fl" style="margin: 15% auto;">
+                     <span id="filePicker1" class="file-btn webuploader-container"><div class="webuploader-pick">
+						<div class="webuploader-pick">
+                            <img style="width: 100%;" th:if="${one.image}" th:src="|${one.image}|">
+
+                            	<img src="./static/img/tianjia.png" th:src="@{~/static/img/tianjia.png}" id="img1"
+                                     onload="setImgWH(this)"
+                                     style="width: 100%;"
+                                     th:unless="${one.image != ''}"
+                                >
+						</div>
+
+						<div id="rt_rt_1cvagj2mr16sv1dg91skisdj1qfr1"
+                             style="position: absolute; top: 0px; left: 0px; width: 120px; height: 100%; overflow: hidden; bottom: auto; right: auto;display:none;">
+							<input type="file" name="file" class="webuploader-element-invisible"
+                                   accept="image/jpg,image/gif,image/png,image/jpeg">
+							<label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+						</div>
+					</div><div id="rt_rt_1dr310mlo13161141c618b5ako1"
+                               style="position: absolute; top: 0px; left: 0px; width: 120px; height: 200px; overflow: hidden; bottom: auto; right: auto;"><input
+                             type="file" name="file" class="webuploader-element-invisible"
+                             accept="image/jpg,image/gif,image/png,image/jpeg"><label
+                             style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div></span>
+
+
+            <input type="hidden" name="icon" id="icon" value="">
+            <input type="hidden" name="ewmclass" id="ewmclass" value="1">
+        </div>
+
+    </div>
+
+    <!--    <div id="rt_rt_1drsgsfl410g510fc10pf1jiamdg1"-->
+    <!--         style="position: absolute; top: 0px; left: 0px; width: 175px; height: 21px; overflow: hidden; bottom: auto; right: auto;"><input-->
+    <!--            type="file" name="file" class="webuploader-element-invisible filecc"-->
+    <!--            accept="image/jpg,image/gif,image/png,image/jpeg" style="left: -99999px;position: absolute;"><label-->
+    <!--            style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label></div>-->
+    </span>
+</div>
+<ul class="mui-table-view ul">
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">充值编号</p>
+        <p class="p" th:text="${one.uniqueNo}">1209jtpj</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">收款类型</p>
+        <p class="p">银行卡</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">收款卡号</p>
+        <p class="p" th:text="${bankAccountNo}">12847561841751241</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">开户银行</p>
+        <p class="p" th:text="${bankName}">招商银行</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">收款姓名</p>
+        <p class="p" th:text="${bankAccountName}">罗东波</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">充值金额</p>
+        <p class="p" th:text="${one.amount}">100.00</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">提交时间</p>
+        <p class="p" th:text="${one.createTime}">2019-11-26 16:34</p></li>
+    <li class="mui-table-view-cell mui-collapse-content"><p class="li">状态</p>
+        <p class="p" th:text="${one.status}">待付款</p></li>
+    <li class="mui-table-view-cell mui-collapse-content">
+        <a
+                th:onclick="orderOk([[${one.id}]]);"
+                type="button"
+                class="buttonchakan button"
+                style="display: inline-block;width: 100%;height: 60px;line-height: 36px;text-align: center;font-size: xx-large;">上传并审核
+        </a>
+    </li>
+
+    <!--    <li class="mui-table-view-cell mui-collapse-content"><p class="li">充值金额</p>-->
+    <!--        <p class="p" th:text="${order.amount}">100.00</p>-->
+    <!--        <p></p></li>-->
+
+    <style>
+        .filecc {
+            left: -99999px;
+            position: absolute;
+        }
+
+        .button {
+            line-height: 1.5em;
+            left: 15px;
+            font-size: 0.9em;
+            width: 40%;
+            font-family: '微软雅黑';
+            border-radius: 30px;
+            border: 0px solid;
+            background: linear-gradient(45deg, BLUE, purple);
+            top: 15px;
+            margin-left: 4%;
+            position: absolute;
+        }
+
+        .buttonchakan {
+            position: absolute;
+            background: linear-gradient(45deg, BLUE, purple);
+            color: #fff;
+            top: 15px;
+            font-size: 0.8em;
+            right: 10px;
+            line-height: 1.1em;
+            width: 80px;
+            /* border-radius: 10px; */
+            border: 0px solid;
+        }
+    </style>
+    <!--    <a href="#" type="button" class="buttonchakan"-->
+    <!--       style="display: inline-block;width: 100%;height: 36px;line-height: 36px;text-align: center;">确认收款</a>-->
+
+
+</ul>
+
+<script type="text/javascript">
+    var UPLOAD_URL = "/cashierQrcode/upload";
+    var SWF_URL = '/Public/js/Uploader.swf';
+    $(function () {
+        upload1();
+    });
+
+
+    $(document).ready(function () {
+        layer.alert('转账备注请一定要填写 “充值编号” 里面的值,否在会交易不成功! ');
+    });
+
+    function orderOk(id) {
+        var image_url = $('#icon').val();
+
+        $.ajax({
+            url: '/cashierApply/submitImages',
+            type: 'post',
+            data: {'image_url': image_url, 'id': id},
+            datatype: 'json',
+            success: function (data) {
+                if (data.isSuccess == true) {
+                    msg_alert("提交成功，待审核！", "/cashierApply/withdrawalAll");
+                } else {
+                    msg_alert("提交失败，请重试！");
+                }
+            }
+
+        });
+    }
+
+</script>
+
+</body>
+</html>

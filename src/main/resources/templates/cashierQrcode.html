@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://zq.rocjack.com/User/wxerweima.html -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+
+
+    <link rel="stylesheet" th:href="@{~/static/css/mui.min.css}" href="./static/css/mui.min.css">
+    <link rel="stylesheet" th:href="@{~/static/css/layer.css}" href="./static/css/layer.css">
+    <script type="text/javascript" th:src="@{~/static/js/jquery-1.9.1.min.js}"
+            src="./static/js/jquery1.11.1.min.js"></script>
+    <script type="text/javascript" th:src="@{~/static/js/layer.js}" src="./static/js/layer.js"></script>
+    <script type="text/javascript" th:src="@{~/static/js/index.js}" src="./static/js/index.js"></script>
+    <script type="text/javascript" th:src="@{~/static/js/public.js}" src="./static/js/public.js"></script>
+    <!--    <script type="text/javascript" th:href="@{~/static/js/jcommon.js}" src="./static/js/"></script>-->
+    <script type="text/javascript" th:src="@{~/static/js/Uploader.swf}" src="./static/js/Uploader.swf"></script>
+    <script type="text/javascript" th:src="@{~/static/js/webuploader.js}" src="./static/js/webuploader.js"></script>
+    <style>
+        .body {
+            line-height: 0px;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+    </style>
+    <style>
+        /*跨webview需要手动指定位置*/
+
+        .mui-plus header.mui-bar {
+            display: none !important;
+        }
+
+        .mui-plus .mui-bar-nav ~ .mui-content {
+            padding: 0 !important;
+        }
+
+        .mui-plus .plus {
+            display: inline;
+        }
+
+        .plus {
+            display: none;
+        }
+
+        #topPopover {
+            position: fixed;
+            top: 16px;
+            right: 6px;
+        }
+
+        #topPopover .mui-popover-arrow {
+            left: auto;
+            right: 6px;
+        }
+
+        span.mui-icon {
+            font-size: 14px;
+            color: #007aff;
+            margin-left: -15px;
+            padding-right: 10px;
+        }
+
+        .mui-popover {
+            height: 300px;
+        }
+
+        .mui-content {
+            padding: 10px;
+        }
+
+        .header {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .h1 {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .ul {
+            margin-top: 20px;
+            background: #1a1d2e;
+            line-height: 2em;
+        }
+
+
+
+        .button {
+            display: block;
+            position: absolute;
+            background: linear-gradient(45deg, BLUE, purple);
+            color: #fff;
+            top: 104px;
+            font-size: 0.7em;
+            right: 20px;
+            line-height: 1.5em;
+            width: 80px;
+            border-radius: 8px;
+            border: 0px solid;
+            width: 20%;
+            height: 18%;
+            text-align: center;
+            line-height: 229%;
+        }
+
+        .buttons {
+            display: block;
+            position: absolute;
+            background: linear-gradient(45deg, BLUE, purple);
+            color: #fff;
+            top: 24px;
+            font-size: 0.7em;
+            right: 20px;
+            line-height: 1.5em;
+            width: 80px;
+            border-radius: 8px;
+            border: 0px solid;
+            width: 20%;
+            height: 18%;
+            text-align: center;
+            line-height: 229%;
+        }
+
+        .buttonss {
+            display: block;
+            position: absolute;
+            background: linear-gradient(45deg, BLUE, purple);
+            color: #fff;
+            top: 180px;
+            font-size: 0.7em;
+            right: 20px;
+            line-height: 1.5em;
+            border-radius: 8px;
+            border: 0px solid;
+            width: 86%;
+            height: 19%;
+            text-align: center;
+            line-height: 268%;
+        }
+    </style>
+
+</head>
+<body style="background: #1a1d2e;">
+<header class="mui-bar mui-bar-nav header">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <h1 th:switch="${type}">
+        <p class="mui-title h1" th:case="'WECHAT'">微信二维码</p>
+        <p class="mui-title h1" th:case="'ALIPAY'">支付宝二维码</p>
+        <p class="mui-title h1" th:case="'UNIONPAY'">云闪付二维码</p>
+        <p class="mui-title h1" th:case="'MERGEPAY'">聚合码二维码</p>
+    </h1>
+</header>
+<br><br>
+
+
+<ul class="mui-table-view ul" style="margin-top: 48px;" th:each="qrcodeEntities : ${qrcodeEntities}">
+    <li class="mui-table-view-cell mui-collapse-content"><p class="p">账号</p>
+        <p class="p2" th:text="${qrcodeEntities.imgUsername}">好好</p></li>
+
+    <li class="mui-table-view-cell mui-collapse-content"><p class="p">手机号码</p>
+        <p class="p2" th:text="${qrcodeEntities.imgPhone}">123</p></li>
+    <a type="button" class="button" href="#" th:herf="@{/cashierQrcode/(id=${qrcodeEntities.id})/qrdata}">详情</a>
+
+    <a type="button" class="buttons" href="#" th:herf="@{/cashierQrcode/(id=${qrcodeEntities.id})/edit}">编辑</a>
+    <span id="tys">
+			<a type="button" th:id="${qrcodeEntities.id}" class="buttonss" href="javascript:"
+               th:text="${qrcodeEntities.enabled}? '已启用中' :'已停用中'  ">
+                已启用，点击切换     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			</a>
+			</span>
+</ul>
+
+
+<!--<ul class="mui-table-view ul" style="margin-top: 48px;">-->
+<!--    <li class="mui-table-view-cell mui-collapse-content"><p class="p">名字</p>-->
+<!--        <p class="p2">谢谢</p></li>-->
+
+<!--    <li class="mui-table-view-cell mui-collapse-content"><p class="p">账号</p>-->
+<!--        <p class="p2">123456</p></li>-->
+<!--    <a type="button" class="button" href="http://zq.rocjack.com/User/erweimainfo/id/328.html">详情</a>-->
+
+<!--    <a type="button" class="buttons" href="http://zq.rocjack.com/User/upma/id/328.html">编辑</a>-->
+<!--    <span id="tys">-->
+<!--			<a type="button" id="xs-328" data-id="328" class="buttonss" href="javascript:">-->
+<!--                已启用，点击切换     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;			</a>-->
+<!--			</span>-->
+<!--</ul>-->
+
+<script>
+    $('#tys>a').click(function () {
+        var id = $(this).attr('id');
+        $.ajax({
+            url: '/cashierQrcode/updateQrcodeStatus',
+            type: 'post',
+            data: {'id': id},
+            datatype: 'json',
+            success: function (data) {
+                if (data.isSuccess == true) {
+                    window.location.reload();
+                }
+            }
+        })
+    });
+</script>
+
+
+</body>
+</html>

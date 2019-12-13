@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<!-- saved from url=(0037)http://zq.rocjack.com/User/index.html -->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+
+    <link href="./static/css/mui.min.css" rel="stylesheet" th:href="@{~/static/css/mui.min.css}">
+    <link href="./static/css/app.css" rel="stylesheet" th:href="@{~/static/css/app.css}">
+    <link href="./static/css/userindex.css" rel="stylesheet" th:href="@{~/static/css/userindex.css}">
+    <link rel="stylesheet" href="./static/css/layer.css" id="layui_layer_skinlayercss" th:href="@{~/static/css/layer.css}">
+
+
+    <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js" th:src="@{~/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" src="./static/js/layer.js" th:src="@{~/static/js/layer.js}"></script>
+
+</head>
+<body style="background:#1a1d2e;" class="mui-ios mui-ios-11 mui-ios-11-0">
+
+<!--我的-->
+<div id="tabbar-with-contact" class="mui-control-content mui-active">
+    <header class="mui-bar mui-bar-nav header">
+        <h1 class="mui-title h1">我的</h1>
+    </header>
+    <p align="center"><br><br><br>
+
+        <!-- <a class="mui-tab-item" href="/Login/shm.html">
+                        <span class="mui-icon mui-icon-info-filled"></span>
+                        <span class="mui-tab-label">系统逻辑、流程及各模块入口说明</span>
+                    </a> -->
+
+    </p>
+    <div class="mui-card-content my">
+        <img src="./static/img/logoer.png" class="myimg">
+        <span class="acc" th:text="${account.username}">13899999999</span>
+        <span class="acc" style="top: 50%; margin-left: 5%;">手续费：</span>
+        <span class="acc" style="top: 50%; margin-left: 20%;" th:text="${cashier.commissionRate}">0.00</span>
+        <button type="button" class="jibie">VIP</button>
+    </div>
+    <ul class="mui-table-view ullist">
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/zichan.png" class="imglist">
+            <a href="./useramount" class="mui-navigate-right"
+               style=" margin-left: 10%;font-size: 0.9em; bottom: 4px; ">
+                我的资产
+            </a>
+        </li>
+
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/erweima.png" class="imglist">
+            <a href="./squeakmanage" class="mui-navigate-right"
+               style=" margin-left: 10%; font-size: 0.9em;bottom: 4px; ">
+                吱口令管理
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/erweima.png" class="imglist">
+            <a href="./erweima" class="mui-navigate-right"
+               style=" margin-left: 10%; font-size: 0.9em;bottom: 4px; ">
+                二维码管理
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/tixian.png" class="imglist">
+            <a href="./finCashierAll" class="mui-navigate-right"
+               style=" margin-left: 10%; font-size: 0.9em;bottom: 4px; ">
+                支出明细
+            </a>
+        </li>
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/tixian.png" class="imglist">
+            <a href="/cashierApply/withdrawalAll" class="mui-navigate-right"
+               style=" margin-left: 10%; font-size: 0.9em;bottom: 4px; ">
+                提现记录
+            </a>
+        </li>
+
+        <li class="mui-table-view-cell mui-collapse-content">
+            <img src="./static/img/shezhi.png" class="imglist">
+            <a href="./api/cashier/logOut" class="mui-navigate-right"
+               style=" margin-left: 10%;font-size: 0.9em; bottom: 4px; ">
+                退出
+            </a>
+        </li>
+    </ul>
+
+</div>
+
+
+<nav class="mui-bar mui-bar-tab" style="background:#1f253d;">
+    <a class="mui-tab-item" href="#">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="./qiangdan">
+        <span class="mui-icon mui-icon-email"></span>
+        <span class="mui-tab-label">抢单</span>
+    </a>
+
+    <a class="mui-tab-item" href="./payOrder/cashierorder">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">收单</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="/indexdata.html">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+
+
+
+

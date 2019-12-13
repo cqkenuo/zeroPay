@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://zq.rocjack.com/Index/qdgame.html -->
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title></title>
+
+    <link rel="stylesheet" th:href="@{~/static/css/mui.min.css}" href="./static/css/mui.min.css">
+    <link href="./static/css/app.css" rel="stylesheet" th:href="@{~/static/css/app.css}">
+    <link href="./static/css/qdgame.css" rel="stylesheet" th:href="@{~/static/css/qdgame.css}">
+    <link href="./static/css/1.css" rel="stylesheet" th:href="@{~/static/css/1.css}">
+    <link rel="stylesheet" th:href="@{~/static/css/layer.css}" href="./static/css/layer.css">
+
+
+    <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"
+            th:src="@{~/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" th:src="@{~/static/js/layer.js}" src="./static/js/layer.js"></script>
+    <script type="text/javascript" th:src="@{~/static/js/index.js}" src="./static/js/index.js"></script>
+
+</head>
+<body style="background:#1a1d2e;" class="mui-ios mui-ios-11 mui-ios-11-0">
+
+<div id="tabbar-with-chat" class="mui-control-content mui-active">
+    <header class="mui-bar mui-bar-nav header">
+        <h1 class="mui-title h1">抢单</h1>
+    </header>
+    <div class="mui-card-content qd">
+        <span class="a">最大抢单金额 : </span>
+        <span class="b" th:text="${user.MaxMonery}">28403.82元</span>
+        <!--        <span class="c">当前抢单难数 : </span>-->
+        <!--        <span class="d">1</span>-->
+        <span class="e">接单佣金 : </span>
+        <span class="f" style="margin-left: 28%;" th:text="${user.commissionRate}">通用点位:0.01%</span>
+
+        <button type="button" class="but">冻结金:0元</button>
+    </div>
+    <!--    <span class="span">【请选择收款类型】</span>-->
+    <!--    <ul class="mui-table-view mui-table-view-radio ullei">-->
+    <!--        <li class="mui-table-view-cell  " id="checkedclass_wx">-->
+    <!--            <a class="mui-navigate-right">-->
+    <!--                微信-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li class="mui-table-view-cell mui-selected" id="checkedclass_zfb">-->
+    <!--            <a class="mui-navigate-right">-->
+    <!--                支付宝-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li class="mui-table-view-cell" id="checkedclass_bank">-->
+    <!--            <a class="mui-navigate-right">-->
+    <!--                商家码-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--        <li class="mui-table-view-cell" id="checkedclass_UNIONPAY">-->
+    <!--            <a class="mui-navigate-right">-->
+    <!--                云闪付-->
+    <!--            </a>-->
+    <!--        </li>-->
+    <!--    </ul>-->
+    <input type="hidden" name="qdclass" id="qdclass" value="2">
+    <input type="hidden" name="qdclass2" id="qdclass2" value="0">
+    <input type="hidden" name="qdclass3" id="qdclass3" value="0">
+
+    <div class="mui-button-row">
+        <button type="button" style="background:#ccc;color:#000" class="mui-btn mui-btn-danger zidong" id="option"
+                onclick="optionqd()">开启收单
+        </button>
+    </div>
+
+
+    <!--    <div class="mui-button-row">-->
+    <!--        <button type="button" class="mui-btn mui-btn-danger zidong" id="autopipei" onclick="zdqd()">开始自动抢单</button>-->
+    <!--    </div>-->
+    <div class="mui-button-row">
+        <div id="payStatus" hidden>1</div>
+    </div>
+    <span id="zd" style="display: none">1</span>
+    <style>
+
+
+        td {
+
+
+            color: #fff;
+            height: 49px;
+            text-align: center;
+        }
+
+        th {
+            color: #007aff;
+        }
+
+
+    </style>
+    <span class="span">【手动抢单】</span>
+    <div class="mui-card-content qd" style="padding: 3%;height: auto; margin-bottom:100px;">
+
+
+        <table style="width: 100%">
+            <tbody>
+            <tr>
+                <th>类型</th>
+                <th>金额</th>
+                <th>操作</th>
+            </tr>
+            </tbody>
+            <tbody id="tpl">
+            <!--            <tr>-->
+            <!--                <td>支付宝</td>-->
+            <!--                <td>0.01</td>-->
+            <!--                <td>-->
+            <!--                    <button type="button" class="mui-btn mui-btn-danger zidong" id="autopipei"-->
+            <!--                            onclick="start_sd('24561')" style="    line-height: 1.4em;  margin-top: 7px;">抢单-->
+            <!--                    </button>-->
+            <!--                </td>-->
+            <!--            </tr>-->
+            <!--            <tr>-->
+            <!--                <td>支付宝</td>-->
+            <!--                <td>0.01</td>-->
+            <!--                <td>-->
+            <!--                    <button type="button" class="mui-btn mui-btn-danger zidong" id="autopipei2"-->
+            <!--                            onclick="start_sd(24561,2)" style="    line-height: 1.4em;  margin-top: 7px;">抢单-->
+            <!--                    </button>-->
+            <!--                </td>-->
+            <!--            </tr>-->
+            </tbody>
+        </table>
+
+    </div>
+
+    <nav class="mui-bar mui-bar-tab" style="background:#1f253d;">
+        <a class="mui-tab-item" href="#">
+            <span class="mui-icon mui-icon-home"></span>
+            <span class="mui-tab-label">首页</span>
+        </a>
+        <a class="mui-tab-item mui-active" href="/qiangdan">
+            <span class="mui-icon mui-icon-email"></span>
+            <span class="mui-tab-label">抢单</span>
+        </a>
+
+        <a class="mui-tab-item " href="./payOrder/cashierorder">
+            <span class="mui-icon mui-icon-gear"></span>
+            <span class="mui-tab-label">收单</span>
+        </a>
+        <a class="mui-tab-item" href="/indexdata">
+            <span class="mui-icon mui-icon-contact"></span>
+            <span class="mui-tab-label">我的</span>
+        </a>
+    </nav>
+
+</div>
+</body>
+</html>
+<script type="text/javascript">
+
+
+    // $(document).ready(function () {
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/Index/sds.html',
+    //         data: '',
+    //         dataType: 'json',
+    //         success: function (str) {
+    //             $("#tpl").empty();
+    //             $.each(str, function (i, item) {
+    //
+    //                 html = '<tr><td>' + item.t + '</td>';
+    //                 html += '<td >' + item.price + '</td>';
+    //                 html += '<td><button type="button" class="mui-btn mui-btn-danger zidong" id="autopipei" onclick="start_sd(' + item.id + ',' + item.class + ')" style="    line-height: 1.4em;  margin-top: 7px;">抢单</button></td></tr>';
+    //
+    //                 $("#tpl").append(html);
+    //             });
+    //         }
+    //     });
+    //     var r = window.setInterval(function () {
+    //             $.ajax({
+    //                 type: 'POST',
+    //                 url: '/Index/sds.html',
+    //                 data: '',
+    //                 dataType: 'json',
+    //                 success: function (str) {
+    //                     $("#tpl").empty();
+    //                     $.each(str, function (i, item) {
+    //
+    //                         html = '<tr><td>' + item.t + '</td>';
+    //                         html += '<td >' + item.price + '</td>';
+    //                         html += '<td><button type="button" class="mui-btn mui-btn-danger zidong" id="autopipei" onclick="start_sd(' + item.id + ',' + item.class + ')" style="    line-height: 1.4em;  margin-top: 7px;">抢单</button></td></tr>';
+    //
+    //                         $("#tpl").append(html);
+    //                     });
+    //                 }
+    //             });
+    //
+    //             if ($("#zt").text() == 1) {
+    //
+    //                 zdqd();
+    //             }
+    //
+    //
+    //         },
+    //         6000);
+    // });
+
+
+    $('#checkedclass_wx').click(function () {
+        $('#checkedclass_wx').addClass("mui-selected");
+        $('#checkedclass_zfb').removeClass("mui-selected");
+        $('#checkedclass_bank').removeClass("mui-selected");
+        $('#qdclass').val(1);
+    });
+    $('#checkedclass_zfb').click(function () {
+        $('#checkedclass_zfb').addClass("mui-selected");
+        $('#checkedclass_wx').removeClass("mui-selected");
+        $('#checkedclass_bank').removeClass("mui-selected");
+        $('#qdclass').val(2);
+    });
+    $('#checkedclass_bank').click(function () {
+        $('#checkedclass_bank').addClass("mui-selected");
+        $('#checkedclass_zfb').removeClass("mui-selected");
+        $('#checkedclass_wx').removeClass("mui-selected");
+        $('#qdclass').val(3);
+    });
+
+</script>
+<script type="text/javascript">
+    // function zdqd() {
+    //     var qdclass = $('#qdclass').val();
+    //     var qdclass2 = $('#qdclass2').val();
+    //     var qdclass3 = $('#qdclass3').val();
+    //
+    //     $.post("/Index/zidong.html",
+    //         {'qdclass': qdclass, 'qdclass2': qdclass2, 'qdclass3': qdclass3},
+    //         function (data) {
+    //             if (data.status == 1) {
+    //                 layer.msg(data.msg);  //,data.url);
+    //                 setTimeout(function (args) {
+    //                     window.location.href = "/Index/shoudan.html";
+    //                 }, 5000);
+    //             }
+    //         });
+    //
+    //
+    // };
+
+    $(document).ready(function () {
+        window.setInterval(function () {
+                var issuccess = $("#payStatus").text();
+                if (issuccess == 0) {
+                    $.ajax({
+                        type: 'POST',
+                        url: '/payOrder/cashierOrders',
+                        data: '',
+                        dataType: 'json',
+                        success: function (data) {
+                            $("#tpl").empty();
+                            $.each($.parseJSON(data.result), function (i, temp) {
+                                html = '<tr><td>' + temp.type + '</td>';
+                                html += '<td >' + temp.amount + '</td>';
+                                html += '<td><button type="button" class="mui-btn mui-btn-danger zidong" id="' + temp.id + '" onclick="start_sd(\'' + temp.id + '\')" style="line-height: 1.4em;  margin-top: 7px;">抢单</button></td></tr>';
+                                $("#tpl").append(html);
+                            });
+
+
+                        }
+                    });
+                }
+            },
+            6000);
+    });
+
+    function optionqd() {
+        $("#option").attr('disabled', true);
+        var issuccess = $("#payStatus").text();
+        $.post("/api/cashier/heartbeat", {
+                'issuccess': issuccess
+            },
+            function (data) {
+                if (data.isSuccess == true) {
+                    $("#option").attr('disabled', false);
+                    // $("#option").text(data.msg);
+                    if (issuccess == 1) {
+                        layer.msg('开启收款成功');  //,data.url);
+                        $("#payStatus").text(0);
+                        $("#option").attr('style', 'background:linear-gradient(45deg,#009688,#5fb878);');
+                        $("#option").text('停止收单');
+                    } else {
+                        $("#option").attr('disabled', false);
+                        $("#option").attr('style', 'background:#ccc; color:#000');
+                        layer.msg('停止收款');  //,data.url);
+                        $("#payStatus").text(1);
+                        $("#option").text('开启收单');
+                    }
+
+
+                }
+
+            });
+    };
+
+
+    /**
+     * 抢单的方法
+     */
+    function start_sd(id) {
+        $.post("/payOrder/cashierToorder/" + id,
+            {'orderNo': id},
+            function (data) {
+                if (data.isSuccess == true) {
+
+                    layer.msg("抢单成功", {time: 3000}, function () {
+                        window.location.href = "./payOrder/cashierorder";
+                    });
+
+                    //关闭收单功能
+                    // $("#option").attr('disabled', false);
+                    // $("#option").attr('style', 'background:#ccc; color:#000');
+                    // layer.msg('停止收款');  //,data.url);
+                    // $("#payStatus").text(1);
+                    // $("#option").text('开启收单');
+
+                    //,data.url);
+                    // setTimeout(function (args) {
+                    //     window.location.href = "/Index/shoudan.html";
+                    // }, 2000);
+                } else {
+                    layer.msg(data.massege);
+                }
+            });
+    };
+
+
+</script>
+<script type="text/javascript">
+    // var r = window.setInterval(function () {
+    //     $.ajax({
+    //         type: 'POST',
+    //         url: '/Index/auntocancer.html',
+    //         data: '',
+    //         dataType: 'json',
+    //         success: function (str) {
+    //
+    //
+    //         }
+    //     });
+    // }, 6000);
+</script>
+
+
+

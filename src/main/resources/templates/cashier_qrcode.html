@@ -1,0 +1,19 @@
+!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片上传测试</title>
+</head>
+<body>
+<div class="auth_wrapper">
+    <form action="http://127.0.0.1:8088/cashierQrcode/upload" method="post" enctype="multipart/form-data">
+        选择图片:<input type="file" name="imgFile" accept="image/*" /> <br>
+        <input type="text" name="cashierid" value="b6eef95efb44494b8df2c1d3a78bb0e8">
+        <input type="submit" value="立刻上传">
+    </form>
+</div>
+<script type="text/javascript" src="./static/vendors/jquery/jquery.min.js"></script>
+<script type="text/javascript" src="./static/vendors/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="./static/vendors/bootstrap-fileinput/js/fileinput.min.js"></script>
+</body>
+</html>

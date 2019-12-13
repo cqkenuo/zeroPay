@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>流水明细</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="static/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+</head>
+<body>
+<ul class="breadcrumb">
+    <li><a href="#">首页</a></li>
+    <li class="active">流水明细</li>
+    <li class="pull-right"><a class="glyphicon glyphicon-chevron-left"  href="#">返回</a></li>
+</ul>
+<div class="container-fluid">
+
+    <div class="x_content">
+        <table id="app-table-id" class="table table-striped table-bordered responsive nowrap" role="grid"
+               style="width:100%">
+            <thead>
+            <tr>
+                <th>事项</th>
+                <th>金额（元）</th>
+                <th>备注</th>
+                <th>记录日期</th>
+            </tr>
+            </thead>
+        </table>
+    </div>
+
+<!--    <table class="table table-striped">-->
+<!--        <thead>-->
+<!--        <tr>-->
+<!--            <th>编号</th>-->
+<!--            <th>消费</th>-->
+<!--            <th>剩余</th>-->
+<!--            <th>交易类型</th>-->
+<!--            <th>时间</th>-->
+<!--            <th>详情</th>-->
+<!--        </tr>-->
+<!--        </thead>-->
+<!--        <tbody>-->
+<!--        <tr th:each="list : ${list}">-->
+<!--            <td th:text="${list.id}">1</td>-->
+<!--            <td th:text="${list.amount}">1</td>-->
+<!--            <td th:text="${list.orderLimitAfter}">1</td>-->
+<!--            <td th:text="${list.category}">1</td>-->
+<!--            <td th:text="${list.createTime}">1</td>-->
+<!--            &lt;!&ndash; 用 / 打头, 会自动把上下文路径(比如 http://localhost:8888/demo) 路径加上去. &ndash;&gt;-->
+<!--            <td><a href="#" th:href="@{/cashierOrder(id=${list.id})}">详情</a></td>-->
+<!--        </tr>-->
+<!--        </tbody>-->
+<!--    </table>-->
+
+</div> <!-- /container -->
+<!--<ul class="navbar-fixed-bottom  breadcrumb nav-pills">-->
+<!--    <li class="active"><a href="#">Home</a></li>-->
+<!--    <li><a href="#">SVN</a></li>-->
+<!--    <li><a href="#">iOS</a></li>-->
+<!--    <li><a href="#">VB.Net</a></li>-->
+<!--    <li><a href="#">Java</a></li>-->
+<!--    <li><a href="#">PHP</a></li>-->
+<!--</ul>-->
+</body>
+
+<script src="static/vendors/requirejs/require.min.js"></script>
+<script>
+    require(['./static/js/requireConfig'], function () {
+        require(['../static/js/app/exchange']);
+    });
+
+</script>
+
+</html>

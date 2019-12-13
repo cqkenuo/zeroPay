@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)http://zq.rocjack.com/Index/shoudan.html -->
+<html xmlns:th="http://www.thymeleaf.org" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.thymeleaf.org ">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>提现</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link href="./static/css/mui.min.css" rel="stylesheet" th:href="@{~/static/css/mui.min.css}">
+    <link rel="stylesheet" href="./static/css/layer.css" th:href="@{~/static/css/layer.css}"
+          id="layui_layer_skinlayercss" style="">
+
+
+    <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"
+            th:src="@{~/static/js/jquery-1.9.1.min.js}"></script>
+    <script type="text/javascript" src="./static/js/layer.js" th:src="@{~/static/js/layer.js}"></script>
+    <script type="text/javascript" src="./static/js/index.js" th:src="@{~/static/js/index.js}"></script>
+    <style>
+        html,
+        body {
+            background-color: #1a1d2e;
+        }
+
+        .mui-bar ~ .mui-content .mui-fullscreen {
+            top: 44px;
+            height: auto;
+        }
+
+        .mui-pull-top-tips {
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            margin-left: -25px;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+        }
+
+        .mui-bar ~ .mui-pull-top-tips {
+            top: 24px;
+        }
+
+        .mui-pull-top-wrapper {
+            width: 42px;
+            height: 42px;
+            display: block;
+            text-align: center;
+            background-color: #efeff4;
+            border: 1px solid #ddd;
+            border-radius: 25px;
+            background-clip: padding-box;
+            box-shadow: 0 4px 10px #bbb;
+            overflow: hidden;
+        }
+
+        .mui-pull-top-tips.mui-transitioning {
+            -webkit-transition-duration: 200ms;
+            transition-duration: 200ms;
+        }
+
+        .mui-pull-top-tips .mui-pull-loading {
+            /*-webkit-backface-visibility: hidden;
+                -webkit-transition-duration: 400ms;
+                transition-duration: 400ms;*/
+
+            margin: 0;
+        }
+
+        .mui-pull-top-wrapper .mui-icon,
+        .mui-pull-top-wrapper .mui-spinner {
+            margin-top: 7px;
+        }
+
+        .mui-pull-top-wrapper .mui-icon.mui-reverse {
+            /*-webkit-transform: rotate(180deg) translateZ(0);*/
+        }
+
+        .mui-pull-bottom-tips {
+            text-align: center;
+            background-color: #efeff4;
+            font-size: 15px;
+            line-height: 40px;
+            color: #777;
+        }
+
+        .mui-pull-top-canvas {
+            overflow: hidden;
+            background-color: #fafafa;
+            border-radius: 40px;
+            box-shadow: 0 4px 10px #bbb;
+            width: 40px;
+            height: 40px;
+            margin: 0 auto;
+        }
+
+        .mui-pull-top-canvas canvas {
+            width: 40px;
+        }
+
+        .mui-slider-indicator.mui-segmented-control {
+            background-color: #1f253d;
+        }
+
+        .mui-table-view-cell:after {
+            background-color: #34313d;
+        }
+
+        .tab {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .head {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .headlist {
+            margin-left: 35px;
+        }
+
+        .ullist {
+            width: 90%;
+            left: 5%;
+            margin-top: 20px;
+            background: #1a1d2e;
+            line-height: 2em;
+        }
+
+        .dingdan {
+            margin-left: 7%;
+            font-family: '微软雅黑';
+            color: aquamarine;
+        }
+
+        .buttonchakan {
+            position: absolute;
+            background: linear-gradient(45deg, BLUE, purple);
+            color: #fff;
+            top: 12px;
+            font-size: 0.8em;
+            right: 10px;
+            line-height: 1.1em;
+            width: 80px;
+            border-radius: 10px;
+            border: 0px solid;
+        }
+    </style>
+    <style>
+
+        .mui-control-item headlist {
+            color: #fff;
+        }
+    </style>
+</head>
+
+<body style="background:#1a1d2e;">
+<header class="mui-bar mui-bar-nav tab">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <h1 class="mui-title head">提现列表</h1>
+</header>
+<div class="mui-content">
+    <div id="slider" class="mui-slider mui-fullscreen">
+        <div class="mui-slider-group" id="item1mobile" style="display:block;">
+            <div class="mui-slider-item mui-control-content">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll" style="    overflow: scroll;
+    width: 400px;
+    height: 536px;">
+                        <ul class="mui-table-view ullist" th:each="orders : ${orderwaiting}">
+                            <li class="mui-table-view-cell mui-collapse-content"><p
+                                    class="dingdan">提现总金额</p>
+                                <p style="position: absolute; left: 35%; bottom: 12px; font-family: '微软雅黑';font-size: 1em; color: #fff;"
+                                   th:text="${orders.amount}" id="amount">
+                                </p>
+                            <li class="mui-table-view-cell mui-collapse-content"><p class="dingdan">已提现金额</p>
+                                <p style="position: absolute; left: 35%;  bottom: 12px; font-family: '微软雅黑';font-size: 1em; color: #fff;"
+                                   th:text="${orders.balanceBefore}" id="balanceBefore">
+                                </p></li>
+                            <li class="mui-table-view-cell mui-collapse-content"><p class="dingdan">未提现金额</p>
+                                <p style="position: absolute; left: 35%; bottom: 12px; font-family: '微软雅黑';font-size: 1em; color: #fff;"
+                                   th:text="${orders.balanceAfter}" id="balanceAfter">
+                                </p></li>
+                            <li class="mui-table-view-cell mui-collapse-content"><p class="dingdan">提现状态</p>
+                                <p style="position: absolute; left: 35%; bottom: 12px; font-family: '微软雅黑';font-size: 1em; color: #fff;"
+                                   th:text="${orders.status}">提现中
+                                </p></li>
+                            <li class="mui-table-view-cell mui-collapse-content"><p class="dingdan">提现时间</p>
+                                <p style="position: absolute; left: 35%; bottom: 12px; font-family: '微软雅黑';font-size: 1em; color: #f0ad4e;"
+                                   th:text="${orders.createTime}">2019-12-12 12:00:00
+                                </p></li>
+                            <li class="mui-table-view-cell mui-collapse-content">
+                                <a
+                                        th:onclick="orderOk([[${orders.uniqueNo}]]);"
+                                        type="button"
+                                        class="buttonchakan"
+                                        style="display: inline-block;width: 100%;height: 60px;line-height: 36px;text-align: center;font-size: xx-large;">申请提现
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="mui-table-view ullist" th:if="${orders == null}">
+                            <li class="mui-table-view-cell mui-collapse-content"><p style="text-align: center;">
+                                暂时没有更多的记录</p></li>
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+
+<nav class="mui-bar mui-bar-tab" style="background:#1f253d;">
+    <a class="mui-tab-item" href="#">
+        <span class="mui-icon mui-icon-home"></span>
+        <span class="mui-tab-label">首页</span>
+    </a>
+    <a class="mui-tab-item" href="/qiangdan">
+        <span class="mui-icon mui-icon-email"></span>
+        <span class="mui-tab-label">抢单</span>
+    </a>
+
+    <a class="mui-tab-item" href="/payOrder/cashierorder">
+        <span class="mui-icon mui-icon-gear"></span>
+        <span class="mui-tab-label">收单</span>
+    </a>
+    <a class="mui-tab-item mui-active" href="/indexdata">
+        <span class="mui-icon mui-icon-contact"></span>
+        <span class="mui-tab-label">我的</span>
+    </a>
+</nav>
+
+<script type="text/javascript" th:inline="javascript">
+
+    function formatDecimal(num) {
+        return (num || 0).toFixed(2);
+    }
+    
+    function orderOk(unique_no) {
+        var status = true;
+        //prompt层
+        layer.prompt({title: '请输入需要认购的金额'}, function (pass, index) {
+            layer.close(index);
+            // layer.msg('演示完毕！您的口令：'+ pass);
+            var re = /^[0-9]+.?[0-9]*/;//判断字符串是否为数字//判断正整数/[1−9]+[0−9]∗]∗/
+            if (!re.test(pass)) {
+                layer.msg("必须为整整数");
+                status = false;
+            }
+
+            // var balanceAfter = formatDecimal($("#balanceAfter").text());
+            //
+            // if (pass > balanceAfter) {
+            //     layer.msg("认购的金额不能大于未提现的金额", {time: 3000});
+            //     status = false;
+            // }
+
+            if (status == true) {
+                $.ajax({
+                    type: 'POST',
+                    url: '/shopWithdrawalEntity/addCashierApply',
+                    data: {"unique_no": unique_no, "amount": pass},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.isSuccess == true) {
+                            var dataTemp=$.parseJSON(data.result);
+                            msg_alert("申请成功", "/cashierApply/withdrawal/" +  dataTemp.unique_no + "/upload");
+                        } else {
+                            layer.msg(data.massege);
+                        }
+                    }
+                });
+            }
+
+        });
+
+
+    }
+
+
+</script>  
+  
+
+
+

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.pay.Dao.CashierQrcodeMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zero.pay.Entity.CashierQrcodeEntity">
+        <id column="id" property="id" />
+        <result column="cashier_id" property="cashierId" />
+        <result column="type" property="type" />
+        <result column="enabled" property="enabled" />
+        <result column="img_url" property="imgUrl" />
+        <result column="img_qrcode" property="imgQrcode" />
+        <result column="img_username" property="imgUsername" />
+        <result column="img_phone" property="imgPhone" />
+        <result column="creatime_time" property="creatimeTime" />
+    </resultMap>
+
+    <sql id="Base_Column_List">
+                id,
+                cashier_id,
+                type,
+                enabled,
+                img_url,
+                img_qrcode,
+                img_username,
+                img_phone,
+                creatime_time
+    </sql>
+
+
+    <insert id="insert" useGeneratedKeys="true" keyColumn="id" keyProperty="id" parameterType="com.zero.pay.Entity.CashierQrcodeEntity">
+        INSERT INTO cashier_qrcode
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                id,
+            </if>
+            <if test ='null != cashierId'>
+                cashier_id,
+            </if>
+            <if test ='null != type'>
+                type,
+            </if>
+            <if test ='null != enabled'>
+                enabled,
+            </if>
+            <if test ='null != imgUrl'>
+                img_url,
+            </if>
+            <if test ='null != imgQrcode'>
+                img_qrcode,
+            </if>
+            <if test ='null != imgUsername'>
+                img_username,
+            </if>
+            <if test ='null != imgPhone'>
+                img_phone,
+            </if>
+            <if test ='null != creatimeTime'>
+                creatime_time
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test ='null != id'>
+                #{id},
+            </if>
+            <if test ='null != cashierId'>
+                #{cashierId},
+            </if>
+            <if test ='null != type'>
+                #{type},
+            </if>
+            <if test ='null != enabled'>
+                #{enabled},
+            </if>
+            <if test ='null != imgUrl'>
+                #{imgUrl},
+            </if>
+            <if test ='null != imgQrcode'>
+                #{imgQrcode},
+            </if>
+            <if test ='null != imgUsername'>
+                #{imgUsername},
+            </if>
+            <if test ='null != imgPhone'>
+                #{imgPhone},
+            </if>
+            <if test ='null != creatimeTime'>
+                #{creatimeTime}
+            </if>
+        </trim>
+    </insert>
+
+    <delete id="delete" >
+        DELETE FROM cashier_qrcode
+        WHERE id = #{id}
+    </delete>
+
+    <update id="update" parameterType="com.zero.pay.Entity.CashierQrcodeEntity">
+        UPDATE cashier_qrcode
+        <set>
+            <if test ='null != cashierId'>cashier_id = #{cashierId},</if>
+            <if test ='null != type'>type = #{type},</if>
+            <if test ='null != enabled'>enabled = #{enabled},</if>
+            <if test ='null != imgUrl'>img_url = #{imgUrl},</if>
+            <if test ='null != imgQrcode'>img_qrcode = #{imgQrcode},</if>
+            <if test ='null != imgUsername'>img_username = #{imgUsername},</if>
+            <if test ='null != imgPhone'>img_phone = #{imgPhone},</if>
+            <if test ='null != creatimeTime'>creatime_time = #{creatimeTime}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+
+    <select id="load" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM cashier_qrcode
+        WHERE id = #{id}
+    </select>
+
+    <select id="pageList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM cashier_qrcode
+        LIMIT #{offset}, #{pageSize}
+    </select>
+
+    <select id="pageListCount" resultType="java.lang.Integer">
+        SELECT count(1)
+        FROM cashier_qrcode
+    </select>
+
+</mapper>

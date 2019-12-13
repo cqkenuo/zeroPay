@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zero.pay.Dao.AccountShopMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.zero.pay.Entity.AccountShopEntity">
+        <id column="id" property="id" />
+        <result column="balance" property="balance" />
+        <result column="withdrawal_charge_rate" property="withdrawalChargeRate" />
+        <result column="withdrawal_password" property="withdrawalPassword" />
+        <result column="api_sign_key" property="apiSignKey" />
+        <result column="api_order_url" property="apiOrderUrl" />
+        <result column="daily_order_limit_alipay" property="dailyOrderLimitAlipay" />
+        <result column="daily_order_limit_wechat" property="dailyOrderLimitWechat" />
+    </resultMap>
+
+</mapper>

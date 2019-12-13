@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <link href="./static/vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="./static/vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./static/vendors/gentelella/custom.min.css" rel="stylesheet">
+</head>
+<style>
+    body {
+        height: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .outer {
+        height: 100%;
+        padding: 100px 0 0;
+        box-sizing: border-box;
+    }
+
+    .top {
+        height: 126px;
+        margin: -100px 0 0;
+        background-color: rgb(255, 82, 82);
+    }
+
+    .down {
+        height: 100%;
+        /*background: #D9C666;*/
+    }
+</style>
+<body>
+<div class="outer">
+    <div class="top">
+        <div class="bg bg-blue">
+            <div class="text-left" style="padding: 20px 0 0 20px; ">
+                <strong>用户名：</strong>
+                <strong id="username">10000000000</strong>
+            </div>
+            <div class="text-left" style="padding: 20px 0 0 20px; ">
+                <strong>手续费：</strong>
+                <strong>0.012</strong>
+            </div>
+            <h3 class="text-center">当前钻石:<strong>0.011</strong></h3>
+        </div>
+    </div>
+    <div class="down">
+        <div style="margin: 2px 0px 0px 3px;">
+            <button type="button" class="btn btn-primary btn-lg">原始按钮</button>
+        </div>
+    </div>
+    <ul class="nav nav-pills nav-stacked">
+        <!--        <li class="active"><a href="#">Home</a></li>-->
+        <li><a href="#" class="">Home</a><span class="glyphicon glyphicon-chevron-right"></span></li>
+        <li><a href="#">SVN</a></li>
+    </ul>
+</div>
+
+</body>
+<script src="./static/vendors/requirejs/require.min.js"></script>
+<script>
+    require(['./static/js/requireConfig'], function () {
+        require(['../static/js/app/index']);
+    });
+</script>
+</html>

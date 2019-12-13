@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<!-- saved from url=(0041)http://zq.rocjack.com/User/wxerweima.html -->
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no">
+    <title>Google 绑定</title>
+
+    <!--    <script type="text/javascript" th:src="@{~/static/js/jquery1.11.1.min.js}" src="./static/js/jquery1.11.1.min.js"></script>-->
+    <!--    <script type="text/javascript" src="./static/js/jquery-1.9.1.min.js"></script>-->
+    <script type="text/javascript" src="./static/js/qrcode.js" th:src="@{~/static/js/qrcode.js}"></script>
+
+    <link rel="stylesheet" th:href="@{~/static/css/mui.min.css}" href="./static/css/mui.min.css">
+    <link rel="stylesheet" th:href="@{~/static/css/layer.css}" href="./static/css/layer.css">
+
+
+    <!--    <script type="text/javascript" th:src="@{~/static/js/jquery.min.js}" src="./static/js/jquery.min.js"></script>-->
+
+    <script type="text/javascript" th:src="@{~/static/js/jquery-1.9.1.min.js}"
+            src="./static/js/jquery1.11.1.min.js"></script>
+
+    <script type="text/javascript" th:src="@{~/static/js/layer.js}" src="./static/js/layer.js"></script>
+    <script type="text/javascript" th:src="@{~/static/js/index.js}" src="./static/js/index.js"></script>
+
+
+    <style>
+        .body {
+            line-height: 0px;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .mui-table-view-cell:after {
+            left: 0px;
+            background-color: #292828;
+        }
+
+        .mui-table-view:before {
+            background-color: #292828;
+        }
+
+        .mui-table-view:after {
+            background-color: #292828;
+        }
+
+        .mui-input-group:before {
+            height: 0px
+        }
+
+        .mui-input-group:after {
+            height: 0px;
+        }
+
+        .head {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .headh1 {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+
+        .erweima {
+            background: #1f253d;
+            height: 180px;
+            width: 175px;
+            top: 80px;
+            margin: auto;
+            left: 0px;
+            right: 0px;
+            border-radius: 10px;
+            box-shadow: 2px 0px 20px 0px #007AFF;
+        }
+
+        .img {
+            width: 120px;
+            margin-left: 26px;
+            margin-top: 20px;
+        }
+
+        .spanerweima {
+            color: #fff;
+            font-family: '微软雅黑';
+            font-size: 0.9em;
+            margin-left: 42px;
+        }
+
+        .spanleixing {
+            position: absolute;
+            color: #CCCCCC;
+            margin-top: 25%;
+            margin-left: 5%;
+            font-size: 0.9em;
+            font-family: '微软雅黑';
+        }
+
+        .ulleixing {
+            background: #1a1d2e;
+            color: #0062CC;
+            font-size: 0.9em;
+            box-shadow: 2px 0px 20px 0px #007AFF;
+            margin-top: 130px;
+            font-family: '微软雅黑';
+            border-radius: 15px;
+            width: 90%;
+            left: 5%;
+        }
+
+        .form {
+            top: 40px;
+            height: 0px;
+            width: 80%;
+            left: 0px;
+            right: 0px;
+            margin: auto;
+        }
+
+        .divinput {
+            border-radius: 30px;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+
+        .formimg {
+            position: absolute;
+            width: 35px;
+            margin-left: 15px;
+            margin-top: 4px;
+        }
+
+        .formmoney {
+            color: #0062CC;
+            margin-top: 10px;
+            margin-left: 22%;
+            font-size: 0.9em;
+            font-family: '微软雅黑';
+        }
+
+        .formzh {
+            color: #0062CC;
+            margin-top: 2px;
+            margin-left: 18%;
+            font-size: 0.9em;
+            font-family: '微软雅黑';
+        }
+
+        .buttonadd {
+            line-height: 2em;
+            font-size: 0.9em;
+            width: 80%;
+            font-family: '微软雅黑';
+            border-radius: 30px;
+            border: 0px solid;
+            background: linear-gradient(45deg, BLUE, purple);
+        }
+
+        .files {
+            margin-right: 120px;
+            width: 120px;
+            text-align: center;
+        }
+
+        .f1 {
+            float: left;
+        }
+
+        .file-btn {
+            display: block;
+            position: relative;
+            margin-right: 120px;
+            width: 120px;
+            height: 120px;
+            overflow: hidden;
+        }
+
+        img {
+            border: 0;
+            vertical-align: middle;
+            display: inline-block;
+        }
+
+        .file-btn3 input, .file-btn input {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            margin: 0;
+            opacity: 0;
+            cursor: pointer;
+        }
+
+        .buttonGeoup .not_next {
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+            text-align: center;
+            background: #073b6b;
+            height: 40px;
+            line-height: 40px;
+            color: #fff;
+            font-size: 12px;
+            margin-bottom: 10px;
+            border-radius: 10px;
+        }
+
+        .divinput {
+            border-radius: 30px;
+            background-color: #fff;
+            margin-bottom: 30px;
+        }
+    </style>
+    <style>
+        /*跨webview需要手动指定位置*/
+
+        .mui-plus header.mui-bar {
+            display: none !important;
+        }
+
+        .mui-plus .mui-bar-nav ~ .mui-content {
+            padding: 0 !important;
+        }
+
+
+        #topPopover .mui-popover-arrow {
+            left: auto;
+            right: 6px;
+        }
+
+
+        .header {
+            background: #1f253d;
+            top: 0;
+            box-shadow: 0 0px 0px #ccc;
+            -webkit-box-shadow: 0 0px 0px #ccc;
+        }
+
+        .h1 {
+            font-family: '微软雅黑';
+            color: #fff;
+        }
+    </style>
+
+</head>
+<body style="background: #1a1d2e;">
+<header class="mui-bar mui-bar-nav header">
+    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left" href="javascript:history.go(-1)"></a>
+    <h1>
+        <p class="mui-title h1">Google身份验证绑定</p>
+    </h1>
+</header>
+<br><br>
+<form class="mui-input-group form">
+    <div class="mui-input-row divinput">
+        <input type="text" class="googleCode  glyphicon-user glyphicon" name="googleCode" id="googleCode"
+               placeholder="请输入 Google 验证码">
+    </div>
+    <br>
+    <div class="mui-button-row" style="margin-bottom: 60px;">
+        <button type="button" class="mui-btn mui-btn-danger buttonadd" id="binding">绑定</button>
+    </div>
+</form>
+
+
+<div class="mui-button-row" style="margin-bottom: 60px; margin-top: 52%">
+    <button type="button" class="mui-btn mui-btn-danger buttonadd" id="doIos">下载IOS版</button>
+    <br/>
+    <button type="button" class="mui-btn mui-btn-danger buttonadd" id="doAndroid" style=" margin-top: 5%;">下载Android版
+    </button>
+
+</div>
+
+
+<center>
+    <div id="qrcode">
+    </div>
+
+    <div style="color: red;margin-top: 16px;">
+        <span> 复制以下内容到 Google动态身份验证中 即可 </span>
+        <!--        <div style="margin: 3px 3px 3px 3px; color: red"><span>账号:</span><span id="name"></span></div>-->
+        <input type="text" id="name" readonly="readonly">
+        <input type="text" id="key" readonly="readonly">
+        <!--        <div style="margin: 3px 3px 3px 3px; color: red"><span>密钥:</span><span id="key"></span></div>-->
+    </div>
+</center>
+
+
+<img id="imgios" src="./static/img/fenxiang.png" hidden>
+<img id="androidios" src="./static/img/fenxiang.png" hidden>
+
+<script>
+    $(document).ready(function () {
+        // if (isAndroid() == true) {
+        //     //页面层-图片
+        //     layer.open({
+        //         type: 1,
+        //         title: false,
+        //         closeBtn: 0,
+        //         area: ['auto'],
+        //         skin: 'layui-layer-nobg', //没有背景色
+        //         shadeClose: true,
+        //         content: $('#androidios')
+        //     });
+        // }
+        // if (isIos() == true) {
+        //     //页面层-图片
+        //     layer.open({
+        //         type: 1,
+        //         title: false,
+        //         closeBtn: 0,
+        //         area: ['auto'],
+        //         skin: 'layui-layer-nobg', //没有背景色
+        //         shadeClose: true,
+        //         content: $('#imgios')
+        //     });
+        // }
+
+        // debugger;
+        $.ajax({
+            url: '/google/qrcode',
+            type: 'post',
+            datatype: 'json',
+            success: function (data) {
+                if (data.isSuccess == true) {
+                    console.log(data);
+                    data = $.parseJSON(data.result);
+                    var url = data.url;
+                    console.log(data.url);
+                    console.log(data.name);
+                    console.log(data.key);
+                    refreshQrcode(url.replace("\"", "").replace("\"", ""));
+                    // refreshQrcode();
+
+                    // $("#name").text('账号:' + data.name);
+                    // $("#key").text('密钥:' + data.key);
+                    //
+                    $("#name").val('账号:' + data.name);
+                    $("#key").val('密钥:' + data.key);
+
+
+                }
+            }
+        });
+
+
+        // new QRCode(document.getElementById('qrcode'), 'your content');
+        // refreshQrcode('ssssssssasdafgas');
+
+    });
+
+    // 判断安卓
+    function isAndroid() {
+        var u = navigator.userAgent;
+        if (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) {
+            if (window.ShowFitness !== undefined) return true;
+        }
+        return false;
+    }
+
+    // 判断设备为 ios
+    function isIos() {
+        var u = navigator.userAgent;
+        if (u.indexOf("iPhone") > -1 || u.indexOf("iOS") > -1) {
+            return true;
+        }
+        return false;
+    }
+
+
+    function refreshQrcode(url) {
+        new QRCode(document.getElementById('qrcode'), {
+            text: url,
+            width: 256,
+            height: 256,
+            colorDark: '#000000',
+            colorLight: '#ffffff',
+            correctLevel: QRCode.CorrectLevel.H
+        });
+    }
+
+    $("#binding").click(function () {
+        var code = $("#googleCode").val();
+        $.ajax({
+            url: '/google/verifyCode',
+            type: 'post',
+            data: {'code': code},
+            datatype: 'json',
+            success: function (data) {
+                if (data.isSuccess == true) {
+                    layer.msg("绑定成功")
+                    window.location.replace("/indexdata")
+                } else {
+                    layer.msg("Google验证码出错，请重新输入")
+                }
+
+            }
+        })
+    });
+
+    $("#doIos").click(function () {
+        // window.location.href="https://a.app.qq.com/o/simple.jsp?pkgname=com.google.android.apps.authenticator2&g_f=undefined";
+        layer.alert('可直接打开苹果商店搜索 " Google动态验证器 " 下载 ', {icon: 6});
+    });
+
+
+    $("#doAndroid").click(function () {
+        window.location.href = "https://a.app.qq.com/o/simple.jsp?pkgname=com.google.android.apps.authenticator2&g_f=undefined";
+    });
+
+    // $.$('#tys>a').click(function () {
+    //     var id = $(this).attr('id');
+    //     $.ajax({
+    //         url: '/cashierQrcode/updateQrcodeStatus',
+    //         type: 'post',
+    //         data: {'id': id},
+    //         datatype: 'json',
+    //         success: function (data) {
+    //             if (data.isSuccess == true) {
+    //                 window.location.reload();
+    //             }
+    //         }
+    //     })
+    // });
+
+</script>
+</body>
+
+
+</html>
